@@ -1,13 +1,10 @@
 import axios from 'axios'
 
-/*
 
-export const fetchValue = ({commit}) => {
-	return axios.get('/api/value/show').then((response) => {
-		commit('setValue', response.data.data)
+export const fetchUser = ({commit}) => {
+	return axios.get('/api/admin/user').then((response) => {
+		commit('setUser', response.data.data)
 
 		return Promise.resolve(response)
 	})
 }
-
- */

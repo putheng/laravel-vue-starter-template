@@ -55,6 +55,7 @@ class VuexSetup extends Command
 
         $context = $this->stubGenerate('VueGetter', [
             'DummyValue' => 'get'. ucfirst($this->option('state')),
+            'DummyData' => $this->option('state'),
         ]);
 
         File::append($getters, "\n\n". $context);

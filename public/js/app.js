@@ -54126,25 +54126,22 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************!*\
   !*** ./resources/js/app/admin/vuex/actions.js ***!
   \************************************************/
-/*! no exports provided */
+/*! exports provided: fetchUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-/*
-
-export const fetchValue = ({commit}) => {
-	return axios.get('/api/value/show').then((response) => {
-		commit('setValue', response.data.data)
-
-		return Promise.resolve(response)
-	})
-}
-
- */
+var fetchUser = function fetchUser(_ref) {
+  var commit = _ref.commit;
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/admin/user').then(function (response) {
+    commit('setUser', response.data.data);
+    return Promise.resolve(response);
+  });
+};
 
 /***/ }),
 
@@ -54152,14 +54149,15 @@ export const fetchValue = ({commit}) => {
 /*!************************************************!*\
   !*** ./resources/js/app/admin/vuex/getters.js ***!
   \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: getUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*
-export const value = (state) => {
-    return state.value
-}
- */
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
+var getUser = function getUser(state) {
+  return state.user;
+};
 
 /***/ }),
 
@@ -54174,10 +54172,8 @@ export const value = (state) => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/app/admin/vuex/state.js");
 /* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mutations */ "./resources/js/app/admin/vuex/mutations.js");
-/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_mutations__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions */ "./resources/js/app/admin/vuex/actions.js");
 /* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getters */ "./resources/js/app/admin/vuex/getters.js");
-/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_getters__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -54196,14 +54192,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************!*\
   !*** ./resources/js/app/admin/vuex/mutations.js ***!
   \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: setUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*
-export const setValue = (state, data) => {
-    state.value = data
-}
- */
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setUser", function() { return setUser; });
+var setUser = function setUser(state, data) {
+  state.user = data;
+};
 
 /***/ }),
 
@@ -54216,7 +54213,10 @@ export const setValue = (state, data) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  user: user
+  /**/
+
 });
 
 /***/ }),
