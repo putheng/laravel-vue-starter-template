@@ -1,0 +1,3 @@
+							<li class="menu-item">
+								<router-link class="menu-link" :to="{name: 'DummyTo'}">DummyText</router-link>
+							</li>

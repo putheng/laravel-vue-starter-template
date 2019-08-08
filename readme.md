@@ -35,7 +35,7 @@ php artisan vue:group Admin
 
 #### Artisan create menu item
 ```
-php artisan vue:menu Admin\Profile\Password
+php artisan vue:menu Admin\\Profile\\Password
 ```
 
 #### Artisan vuex setup

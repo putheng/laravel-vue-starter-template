@@ -8,8 +8,12 @@ axios.interceptors.response.use((response) => {
 			store.commit('setMessage', response.data.message)
 		}
 	}
+
+	if(response.data.login){
+		window.location.replace('/'+ response.data.role);
+	}
 	
-	return response
+	return Promise.resolve(response)
 }, (error) => {
 	if(error.response.status === 422){
 		

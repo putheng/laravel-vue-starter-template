@@ -68,7 +68,7 @@ class VuexSetup extends Command
         $state = $this->resourcesPath('state.js');
 
         $context = $this->generateStub($state, [
-            "/**/" => $this->option('state') .",\n\t". "/**/",
+            "/**/" => $this->option('state') ." : null,\n\t". "/**/",
         ]);
 
         File::put($state, $context);

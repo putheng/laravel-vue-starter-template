@@ -1,7 +1,14 @@
 <template>
-    <div>
-    	DummyPage
-    </div>
+	<div class="page">
+		<div class="page-inner">
+			<header class="page-title-bar">
+				<h1 class="page-title">DummyPage</h1>
+			</header>
+			<div class="page-section">
+				<p>DummyPage</p>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>

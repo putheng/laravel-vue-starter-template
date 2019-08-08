@@ -7,7 +7,7 @@ import {
 
 export default [
 	{
-		path: '/admin/home/dashboard',
+		path: '/admin',
 		component: C5D31D9B62E5BFB,
 		name: 'dashboard'
 	},

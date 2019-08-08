@@ -1,7 +1,14 @@
 <template>
-    <div>
-    	Dashboard
-    </div>
+	<div class="page">
+		<div class="page-inner">
+			<header class="page-title-bar">
+				<h1 class="page-title">Page title</h1>
+			</header>
+			<div class="page-section">
+				<p>Dashboard</p>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>

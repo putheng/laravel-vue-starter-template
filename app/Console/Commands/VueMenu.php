@@ -42,6 +42,9 @@ class VueMenu extends Command
     public function handle()
     {
         $arg = $this->argument('menu');
+
+        dd($this->setMenu());
+
         $explode = explode('\\', $arg);
         $resource = resource_path('js/app/');
 
@@ -56,6 +59,7 @@ class VueMenu extends Command
 
         $mainx = $explode[0];
         $main = strtolower($mainx);
+        $routeName = strtolower(str_replace('\\', '-', $arg));
 
         $clean = $main . '/components'. str_replace($main, '', $cleanPath);
 
@@ -91,7 +95,7 @@ class VueMenu extends Command
 
         File::append($indexjs, $export);
 
-        $routes = "{\n\t\tpath: '/{$cleanPath}',\n\t\tcomponent: {$id},\n\t\tname: '{$main}-{$name}'\n\t},\n\t/**/";
+        $routes = "{\n\t\tpath: '/{$cleanPath}',\n\t\tcomponent: {$id},\n\t\tname: '{$routeName}'\n\t},\n\t/**/";
 
         sleep(1);
 
@@ -103,5 +107,28 @@ class VueMenu extends Command
         File::put($routejs, $generateRoute);
 
         return $this->info('Generate success');
+    }
+
+    public function setMenu()
+    {
+        $arg = $this->argument('menu');
+
+        $routeName = strtolower(str_replace('\\', '-', $arg));
+        $explode = explode('\\', $arg);
+        $menu = $explode[0];
+        $name = array_pop($explode);
+
+        $resource = resource_path('js/components/layouts/'. strtolower($menu). '/partials/'. 'AppAside.vue');
+
+        $context = $this->stubGenerate('Menu', [
+            "DummyTo" => $routeName,
+            "DummyText" => $name
+        ]);
+
+        $replace = $this->generateStub($resource, [
+            "\t\t\t\t\t\t<ul class=\"menu\">" => $context
+        ]);
+
+        dd($replace);
     }
 }
