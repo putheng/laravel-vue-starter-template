@@ -44,6 +44,9 @@
 						</a>
 						<ul class="menu">
 							<li class="menu-item">
+								<router-link class="menu-link" :to="{name: 'admin-home-password'}">Password</router-link>
+							</li>
+							<li class="menu-item">
 								<router-link class="menu-link" :to="{name:'admin-billing'}">Billing</router-link>
 							</li>
 						</ul>

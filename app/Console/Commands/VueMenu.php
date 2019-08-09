@@ -38,12 +38,15 @@ class VueMenu extends Command
      *
      * @return mixed
      */
-
+    
     public function handle()
     {
-        $arg = $this->argument('menu');
+        
+    }
 
-        dd($this->setMenu());
+    public function handlex()
+    {
+        $arg = $this->argument('menu');
 
         $explode = explode('\\', $arg);
         $resource = resource_path('js/app/');
@@ -106,6 +109,8 @@ class VueMenu extends Command
 
         File::put($routejs, $generateRoute);
 
+        $this->setMenu();
+
         return $this->info('Generate success');
     }
 
@@ -116,6 +121,7 @@ class VueMenu extends Command
         $routeName = strtolower(str_replace('\\', '-', $arg));
         $explode = explode('\\', $arg);
         $menu = $explode[0];
+        $middle = $explode[1];
         $name = array_pop($explode);
 
         $resource = resource_path('js/components/layouts/'. strtolower($menu). '/partials/'. 'AppAside.vue');
@@ -126,9 +132,9 @@ class VueMenu extends Command
         ]);
 
         $replace = $this->generateStub($resource, [
-            "\t\t\t\t\t\t<ul class=\"menu\">" => $context
+            "<span class=\"menu-text\">{$middle}</span>\r\n\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t<ul class=\"menu\">" => $context
         ]);
 
-        dd($replace);
+        File::put($resource, $replace);
     }
 }
