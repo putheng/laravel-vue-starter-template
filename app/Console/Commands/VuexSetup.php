@@ -39,34 +39,14 @@ class VuexSetup extends Command
      *
      * @return mixed
      */
+
     public function handle()
-    {
-        $this->generateController();
-    }
-
-    public function generateController()
-    {
-        $option = ltrim($this->option('endpoint'), '/');
-
-        $explode = explode('/', $option);
-        $namespace = ucfirst($explode[1]);
-        $controller = "$namespace\\".ucfirst($explode[2])."Controller";
-        $request = "$namespace\\".ucfirst($explode[2])."FormRequest";
-        $route = "Route::get('/{$option}', '$controller@store');";
-
-        Artisan::call('make:controller', [
-            'name' => $controller,
-        ]);
-
-        return $this->info($route);
-    }
-
-    public function handlex()
     {
         $this->addState();
         $this->addAction();
         $this->addMutation();
         $this->addGetter();
+        $this->generateController();
 
         return $this->info('Generate success');
     }
@@ -138,5 +118,29 @@ class VuexSetup extends Command
         $namespace = explode('/', $this->argument('action'))[0];
 
         return base_path("resources/js/app/{$namespace}/vuex/{$file}");
+    }
+
+    public function generateController()
+    {
+        $option = ltrim($this->option('endpoint'), '/');
+
+        $explode = explode('/', $option);
+        $namespace = ucfirst($explode[1]);
+        $controller = "$namespace\\".ucfirst($explode[2])."Controller";
+        $resource = "$namespace\\".ucfirst($explode[2])."Resources";
+        $route = "Route::get('/{$option}', '$controller@index');";
+
+        Artisan::call('make:controller', [
+            'name' => $controller,
+            '--resource' => true,
+        ]);
+        $this->info("Controller created successfully.");
+
+        Artisan::call('make:resource', [
+            'name' => $resource,
+        ]);
+        $this->info("Resources created successfully.");
+
+        return $this->info($route);
     }
 }

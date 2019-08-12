@@ -4,6 +4,7 @@
 /storage/*.key
 /app/Http/Controllers
 /resources/js/app/
+/resources/js/vuex/
 /vendor
 .env
 .phpunit.result.cache

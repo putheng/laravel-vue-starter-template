@@ -52,7 +52,7 @@ class VueGroup extends Command
         $stub = base_path() . '/resources/js/app/routes.js';
         $vuex = base_path() . '/resources/js/vuex/index.js';
 
-        File::copyDirectory($app_path.'/app/layout', $app_path.'/app/'. $import);
+        File::copyDirectory($app_path.'/components/layouts/layout', $app_path.'/app/'. $import);
 
         $importContext = "import $import from './$import/routes'\n";
 
