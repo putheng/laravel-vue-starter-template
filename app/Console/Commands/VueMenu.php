@@ -38,13 +38,8 @@ class VueMenu extends Command
      *
      * @return mixed
      */
-    
-    public function handle()
-    {
-        
-    }
 
-    public function handlex()
+    public function handle()
     {
         $arg = $this->argument('menu');
 
@@ -109,7 +104,7 @@ class VueMenu extends Command
 
         File::put($routejs, $generateRoute);
 
-        $this->setMenu();
+        // $this->setMenu();
 
         return $this->info('Generate success');
     }

@@ -1,5 +1,5 @@
 export { default as HomePage } from './Home'
-export { default as AppInput } from './AppInput'
+export { default as AppInput } from './admin/AppInput'
 export { default as LoginForm } from './LoginForm'
 export { default as AppButton } from './admin/AppButton'
 export { default as LoginButton } from './admin/LoginButton'

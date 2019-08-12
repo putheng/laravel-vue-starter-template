@@ -1,0 +1,9 @@
+<li class="menu-item has-child">
+						<a href="#" class="menu-link">
+							<span class="menu-icon oi oi-list-rich"></span>
+							<span class="menu-text">Home</span>
+						</a>
+						<ul class="menu">
+							<!--/*child*/-->
+						</ul>
+					</li>

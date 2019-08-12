@@ -5,7 +5,16 @@
 				<h1 class="page-title">DummyPage</h1>
 			</header>
 			<div class="page-section">
-				<p>DummyPage</p>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="card card-fluid">
+							<div class="card-body">
+								<h3 class="card-title"> DummyPage </h3>
+								<p>DummyPage</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

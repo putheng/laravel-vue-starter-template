@@ -1,7 +1,6 @@
 import {
 	C5D31D9B62E5BFB,
-	C5D31DA3224469B,
-	C5D4C086E1029BB,
+	C5D50E4CB84C9CB,
 	/****/
 } from '../components'
 
@@ -13,14 +12,9 @@ export default [
 		name: 'dashboard'
 	},
 	{
-		path: '/admin/home/billing',
-		component: C5D31DA3224469B,
-		name: 'admin-billing'
-	},
-	{
-		path: '/admin/home/password',
-		component: C5D4C086E1029BB,
-		name: 'admin-home-password'
+		path: '/admin/vendor/create',
+		component: C5D50E4CB84C9CB,
+		name: 'admin-vendor-create'
 	},
 	/**/
 ]

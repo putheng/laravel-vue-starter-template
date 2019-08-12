@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Console\Traits\Generatable;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
 class VuexSetup extends Command
@@ -39,6 +40,28 @@ class VuexSetup extends Command
      * @return mixed
      */
     public function handle()
+    {
+        $this->generateController();
+    }
+
+    public function generateController()
+    {
+        $option = ltrim($this->option('endpoint'), '/');
+
+        $explode = explode('/', $option);
+        $namespace = ucfirst($explode[1]);
+        $controller = "$namespace\\".ucfirst($explode[2])."Controller";
+        $request = "$namespace\\".ucfirst($explode[2])."FormRequest";
+        $route = "Route::get('/{$option}', '$controller@store');";
+
+        Artisan::call('make:controller', [
+            'name' => $controller,
+        ]);
+
+        return $this->info($route);
+    }
+
+    public function handlex()
     {
         $this->addState();
         $this->addAction();

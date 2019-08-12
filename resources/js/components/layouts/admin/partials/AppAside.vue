@@ -36,18 +36,14 @@
 						<span class="menu-icon fas fa-home"></span>
 						<span class="menu-text">Dashboard</span>
 					</router-link>
-
 					<li class="menu-item has-child">
 						<a href="#" class="menu-link">
 							<span class="menu-icon oi oi-list-rich"></span>
-							<span class="menu-text">Home</span>
+							<span class="menu-text">Vendor</span>
 						</a>
 						<ul class="menu">
 							<li class="menu-item">
-								<router-link class="menu-link" :to="{name: 'admin-home-password'}">Password</router-link>
-							</li>
-							<li class="menu-item">
-								<router-link class="menu-link" :to="{name:'admin-billing'}">Billing</router-link>
+								<router-link class="menu-link" :to="{name: 'admin-vendor-create'}">Create</router-link>
 							</li>
 						</ul>
 					</li>
